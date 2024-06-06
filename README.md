@@ -1,5 +1,5 @@
 # Expression_data_converter
-This is a script written in R to convert count values (.tsv files) to TPM (Transcripts per million). This code has been structured by me but I don't claim it as IP since it has been sourced from Copilot, ChatGPT and other sources.
+This is a script written in R to convert count values (.tsv files) to TPM (Transcripts per million) values. This code has been structured by me but I don't claim it as IP since it has been sourced from Copilot, ChatGPT and other sources.
 Note: This code is limited to human data, but it can be generalized for expression data of any species
 
 Let me explain the flow and structure of the code
