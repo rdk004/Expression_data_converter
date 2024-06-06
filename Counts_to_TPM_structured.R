@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------- #
-
+# SECTION 1
 # Let us first load all the libraries required 
 
 library(readr)
@@ -14,12 +14,12 @@ library(GenomicRanges)
 library(dplyr)
 
 # ---------------------------------------------------------------------------- #
-
+# SECTION 2
 # Import the .tsv file
 
 tsv_df <- read_tsv('your file path')
 # ---------------------------------------------------------------------------- #
-
+# SECTION 3
 # Apply the antilog transformation to count data (Assuming Ensembl_ID is the identifier column)
 
 anti_log_transformed_df <- tsv_df %>% 
@@ -31,7 +31,7 @@ anti_log_transformed_df <- tsv_df %>%
 
 ensembl_ids_cancername_genes<- tsv_df["Ensembl_ID"]
 # ---------------------------------------------------------------------------- #
-
+# SECTION 4
 # Load the GTF file and extract the gene lengths of correspoding Ensembl IDs
 
 gtf <- import('path of gtf file in system')
@@ -57,7 +57,7 @@ gene_lengths_ensembl_id <- gene_df[match(ensembl_ids_cancername_genes$Ensembl_ID
 
 gene_lengths_ensembl_id$length <- gene_lengths_ensembl_id$length / 1000 # Now we have the lengths of every gene
 # ---------------------------------------------------------------------------- #
-
+# SECTION 5
 # TPM transformations
 
 # Formula description: # TPM = x/sum(x) * 1e6 (where x = c/l; c is the count value (antilog transformed) and l is the length of the gene in kb; sum(x) is all x values summed for a sample)
@@ -119,7 +119,7 @@ colnames(final_tpm_df) <- column_names
 
 View(final_tpm_df) # This is your converted TPM dataframe
 # ---------------------------------------------------------------------------- #
-
+# SECTION 6
 # Let us export this TPM dataframe:
 write.csv(final_tpm_df, file = '/home/nsclab/Rishabh_Kulkarni/Lab_project_2024/Datasets/TPM files/LUAD/luad_tcga_tpm.csv', row.names = FALSE)
 # ---------------------------------------------------------------------------- #
