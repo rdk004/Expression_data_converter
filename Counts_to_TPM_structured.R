@@ -121,5 +121,5 @@ View(final_tpm_df) # This is your converted TPM dataframe
 # ---------------------------------------------------------------------------- #
 # SECTION 6
 # Let us export this TPM dataframe:
-write.csv(final_tpm_df, file = '/home/nsclab/Rishabh_Kulkarni/Lab_project_2024/Datasets/TPM files/LUAD/luad_tcga_tpm.csv', row.names = FALSE)
+write.csv(final_tpm_df, file = 'file_path', row.names = FALSE)
 # ---------------------------------------------------------------------------- #
